@@ -1,14 +1,16 @@
-def sort2023(a):
-	if len(a) <2:
-		return a
-	else:
-		for i in range(len(a)):
-			for j in range(i + 1, len(a)):
-				if a[i]>a[j]:
-					a[i], a[j] = a[j], a[i]
-    
-	return a
+graph = {'0': set(["1"]),
+'1': set(['0']),
+'2': set (['4']),
+'3': set(["1", "2"]),
+'4': set(['2'])}
 
-a = [21, 45, 25, 1, 5, 6]
-sort = sort2023(a)
-print(sort)
+def dfs(graph,start,visited = []):
+	stack = [start]
+	while stack:
+		node = stack.pop()
+		if node not in visited:
+			visited.append(node)
+			stack.extend(v for v in graph[node] if v not in visited)
+	return visited
+
+print(dfs(graph, '3'))
