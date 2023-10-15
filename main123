@@ -1,1 +1,17 @@
-print("Hello")
+def find1(a, number):
+	c = 0
+	b = len(a) - 1
+	while b >= c:
+		median = (b + c) // 2
+		if a[median] == number:
+			return median+1
+		elif a[median] < number:
+			c = median + 1
+		else:
+			b = median - 1
+	return print("Нет такого числа")
+
+a = sorted([6, 7, 3, 5, 7, 9, 33, 22, 55])
+number = 566
+result = find1(a, number)
+print(result)
