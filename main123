@@ -1,17 +1,14 @@
-def find1(a, number):
-	c = 0
-	b = len(a) - 1
-	while b >= c:
-		median = (b + c) // 2
-		if a[median] == number:
-			return median+1
-		elif a[median] < number:
-			c = median + 1
-		else:
-			b = median - 1
-	return print("Нет такого числа")
+def sort2023(a):
+	if len(a) <2:
+		return a
+	else:
+		for i in range(len(a)):
+			for j in range(i + 1, len(a)):
+				if a[i]>a[j]:
+					a[i], a[j] = a[j], a[i]
+    
+	return a
 
-a = sorted([6, 7, 3, 5, 7, 9, 33, 22, 55])
-number = 566
-result = find1(a, number)
-print(result)
+a = [21, 45, 25, 1, 5, 6]
+sort = sort2023(a)
+print(sort)
